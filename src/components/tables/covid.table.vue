@@ -2,10 +2,10 @@
   <div>
     <v-card class="mt-6">
       <v-card-title>
-        <h2 class="titletxt">
+        <h3 class="titletxt">
           Table Report
           <div class="ml-4 primary--text">Date: {{ this.dateSelect }}</div>
-        </h2>
+        </h3>
         <v-spacer></v-spacer>
         <v-col cols="auto">
           <v-text-field
@@ -186,15 +186,15 @@ div >>> .titletxt {
   display: flex !important;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 320px)  and (max-width: 320px)  {
   div >>> .titletxt {
     font-size: 20px;
   }
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 375px) and (max-width: 375px) {
   div >>> .titletxt {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 </style>
