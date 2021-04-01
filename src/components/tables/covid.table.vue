@@ -22,7 +22,6 @@
             :items="this.getDate"
             label="date"
             solo
-            clearable
             hide-details
             hide-selected
             menu-props="auto"

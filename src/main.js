@@ -17,6 +17,8 @@ Vue.use(VueAxios, axios);
 Vue.use(Loading);
 import "vue-loading-overlay/dist/vue-loading.css";
 
+import "material-design-icons-iconfont/dist/material-design-icons.css";
+
 import apiService from "../services/apiService";
 Vue.prototype.$restApi = apiService;
 
@@ -25,11 +27,12 @@ Vue.mixin({
         dateFormat(date) {
             if (date) {
                 let date_ob = new Date(date);
-                let day = date_ob.getDate()
-                let month = date_ob.getMonth() + 1
+                let day = date_ob.getDate();
+                let month = date_ob.getMonth() + 1;
                 let year = date_ob
                     .getFullYear()
-                    .toString().slice(-2)
+                    .toString()
+                    .slice(-2);
                 date_ob = `${day}/${month}/${year}`;
                 return date_ob;
             }
@@ -37,48 +40,24 @@ Vue.mixin({
         dateFindFormat(date) {
             if (date) {
                 let date_ob = date.split("/");
-                let day = date_ob[0]
-                let month = date_ob[1]
-                let year = date_ob[2]
+                let day = date_ob[0];
+                let month = date_ob[1];
+                let year = date_ob[2];
                 date_ob = `${month}/${day}/${year}`;
                 return date_ob;
             }
         },
-        getOwnProperty(Obj) {
-            let result = [];
-            for (let key in Obj) {
-                if (Object.prototype.hasOwnProperty.call(Obj, key)) {
-                    result.push({
-                        date: key,
-                        cases: null,
-                        deaths: null,
-                        recovered: null,
-                        country: null,
-                        province: null,
-                    });
-                }
+        dateRange(start, end) {
+            var range = [];
+            let fromDate = new Date(start);
+            let toDate = new Date(end);
+            for (
+                let unix = fromDate.getTime(); unix <= toDate.getTime(); unix += 86400000
+            ) {
+                let thisDay = new Date(unix);
+                range.push(thisDay);
             }
-            return result;
-        },
-        getValue(Obj) {
-            let result = [];
-            for (let key in Obj) {
-                if (Object.prototype.hasOwnProperty.call(Obj, key)) {
-                    result.push(Obj[key]);
-                }
-            }
-            return result;
-        },
-        getArrayValue(data, type) {
-            let result = [];
-            for (let i = 0; i < data.length; i++) {
-                if (type == "country") {
-                    result.push(data[i].country);
-                } else {
-                    result.push(data[i].province);
-                }
-            }
-            return result;
+            return range;
         },
     },
 });

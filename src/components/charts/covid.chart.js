@@ -78,38 +78,29 @@ export default {
     },
     methods: {
         async OnQuery() {
-            if (this.type == "all") {
-                try {
-                    let chartArr = [];
-                    let labelArr = [];
-                    let find_data = await this.$restApi.get("all");
+            try {
+                let chartArr = [];
+                let labelArr = [];
+                let find_data = await this.$restApi.get("all");
+                if (this.type == "all") {
                     chartArr.push(
                         find_data.active,
                         find_data.deaths,
                         find_data.recovered
                     );
                     labelArr.push("All Active", "All Deaths", "All Recovered");
-                    this.chartdata = chartArr;
-                    this.labeldata = labelArr;
-                } catch (error) {
-                    console.log(error);
-                }
-            } else {
-                try {
-                    let chartArr = [];
-                    let labelArr = [];
-                    let find_data = await this.$restApi.get("all");
+                } else {
                     chartArr.push(
                         find_data.todayCases,
                         find_data.todayDeaths,
                         find_data.todayRecovered
                     );
                     labelArr.push("Today Cases", "Today Deaths", "Today Recovered");
-                    this.chartdata = chartArr;
-                    this.labeldata = labelArr;
-                } catch (error) {
-                    console.log(error);
                 }
+                this.chartdata = chartArr;
+                this.labeldata = labelArr;
+            } catch (error) {
+                console.log(error);
             }
         },
     },
