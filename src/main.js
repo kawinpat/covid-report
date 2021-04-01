@@ -6,11 +6,16 @@ import store from "./store";
 import vuetify from "./plugins/vuetify";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import Loading from "vue-loading-overlay";
 
 Vue.config.productionTip = false;
 
-// axios
+// Axios
 Vue.use(VueAxios, axios);
+
+// Loading Overay
+Vue.use(Loading);
+import "vue-loading-overlay/dist/vue-loading.css";
 
 import apiService from "../services/apiService";
 Vue.prototype.$restApi = apiService;
