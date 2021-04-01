@@ -192,7 +192,7 @@ div >>> .titletxt {
   }
 }
 
-@media screen and (min-width: 375px) and (max-width: 375px) {
+@media screen and (min-width: 375px) and (max-width: 414px) {
   div >>> .titletxt {
     font-size: 23px;
   }
