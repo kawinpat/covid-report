@@ -15,8 +15,5 @@
 <script>
 export default {
   name: "App",
-  mounted() {
-    this.$router.push({ path: '/report'});
-  }
 };
 </script>
