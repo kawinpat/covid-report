@@ -15,11 +15,8 @@
 <script>
 export default {
   name: "App",
-
-  components: {},
-
-  data: () => ({
-    //
-  }),
+  mounted() {
+    this.$router.push({ path: '/report'});
+  }
 };
 </script>
