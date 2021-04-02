@@ -31,7 +31,11 @@
               :to="this.$route.path == '/report' ? '/profile' : '/report'"
               icon
             >
-              <v-icon>mdi-account-circle</v-icon>
+              <v-icon>{{
+                this.$route.path == "/report"
+                  ? "mdi-account-circle"
+                  : "mdi-chart-areaspline"
+              }}</v-icon>
             </v-btn>
           </v-col>
         </v-row>
