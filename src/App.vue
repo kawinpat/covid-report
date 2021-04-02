@@ -51,8 +51,14 @@
 <script>
 export default {
   name: "App",
-  beforeMount() {
-    this.$router.push({ path: "/report" }).catch((err) => err);
+  mounted() {
+    this.firstPage()
+  },
+  methods: {
+    firstPage() {
+      if (this.$route.path == "/")
+        this.$router.push({ path: "/report" }).catch((err) => err);
+    },
   },
 };
 </script>
