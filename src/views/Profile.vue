@@ -97,7 +97,7 @@
                 </v-card-actions>
               </v-card-text>
             </v-col>
-            <v-col cols="12" md="4" sm="6" class=" rightCol">
+            <v-col cols="12" md="4" sm="6" class=" rightCol py-7">
               <div>
                 <v-card-title class="headCard d-flex justify-center">
                   <h2 class="lsHeadtxt txtDel">
@@ -120,7 +120,7 @@
           </v-row>
 
           <v-row class="px-1">
-            <v-col cols="12" md="8" sm="6" class="pa-0">
+            <v-col cols="12" md="8" sm="6" class="pa-0 my-5">
               <v-card-title class="headCard">
                 <h2 class="lsHeadtxt txtDel">
                   SKILLS
@@ -136,7 +136,9 @@
                       <h3>INTERMEDIATE</h3>
                       <v-btn icon color="black">
                         <v-icon>
-                          {{ showinter ? "mdi-chevron-up" : "mdi-chevron-down" }}
+                          {{
+                            showinter ? "mdi-chevron-up" : "mdi-chevron-down"
+                          }}
                         </v-icon>
                       </v-btn>
                     </v-card-actions>
@@ -194,7 +196,7 @@
                 </v-row>
               </v-card-text>
             </v-col>
-            <v-col cols="12" md="4" sm="6" class="rightCol">
+            <v-col cols="12" md="4" sm="6" class="rightCol py-7">
               <div>
                 <v-card-title class="headCard d-flex justify-center">
                   <h2 class="lsHeadtxt txtDel">
@@ -251,7 +253,12 @@
                 </v-list-item>
               </v-card-text>
             </v-col>
-            <v-col cols="12" md="4" sm="6" class="pa-0 rightCol">
+            <v-col
+              cols="12"
+              md="4"
+              sm="6"
+              class="px-0 py-7 rightCol align-start"
+            >
               <div style="width: 100%">
                 <v-card-title class="headCard d-flex justify-center">
                   <h2 class="lsHeadtxt txtDel">
