@@ -144,7 +144,7 @@
                     </v-card-actions>
                     <v-expand-transition>
                       <div v-show="showinter">
-                        <v-divider></v-divider>
+                        <v-divider width="50%"></v-divider>
                         <v-list-item
                           v-for="(val, index) in intermediate"
                           :key="index"
@@ -174,7 +174,7 @@
                     </v-card-actions>
                     <v-expand-transition>
                       <div v-show="show">
-                        <v-divider></v-divider>
+                        <v-divider width="50%"></v-divider>
                         <v-list-item
                           v-for="(val, index) in beginner"
                           :key="index"
