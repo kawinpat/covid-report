@@ -104,28 +104,20 @@ export default {
     ...mapMutations(["keepDataTable"]),
     async onFilter(date) {
       if (date) {
+        console.log(date);
         let dateSelect = date;
         let currentDate = this.dateFormat(new Date());
 
         let ds = dateSelect.split("/");
         let cd = currentDate.split("/");
 
-        var from = new Date(ds[2], parseInt(ds[1]) - 1, ds[0]).toISOString();
-        var to = new Date(cd[2], parseInt(cd[1]) - 1, cd[0]).toISOString();
+        var from = new Date(ds[2], parseInt(ds[1]) - 1, ds[0]);
+        var to = new Date(cd[2], parseInt(cd[1]) - 1, cd[0]);
 
-        from = from.slice(0, 10);
-        to = to.slice(0, 10);
-
-        from = from.split("-");
-        to = to.split("-");
-
-        from = parseInt(`${from[0]}` + `${from[1]}` + `${from[2]}`);
-        to = parseInt(`${to[0]}` + `${to[1]}` + `${to[2]}`);
-
-        let sum = Math.abs(to - from);
+        let fineBetweenDate = this.dateRange(from, to);
+        let sum = fineBetweenDate.length - 1;
 
         this.dateFind = this.dateFindFormat(dateSelect);
-
         this.dataTable = await this.$restApi.get(`historical?lastdays=${sum}`);
 
         for (let i = 0; i < this.dataTable.length; i++) {
@@ -185,7 +177,7 @@ div >>> .titletxt {
   display: flex !important;
 }
 
-@media screen and (min-width: 320px)  and (max-width: 320px)  {
+@media screen and (min-width: 320px) and (max-width: 320px) {
   div >>> .titletxt {
     font-size: 20px;
   }

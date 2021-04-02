@@ -29,10 +29,7 @@ Vue.mixin({
                 let date_ob = new Date(date);
                 let day = date_ob.getDate();
                 let month = date_ob.getMonth() + 1;
-                let year = date_ob
-                    .getFullYear()
-                    .toString()
-                    .slice(-2);
+                let year = date_ob.getFullYear().toString();
                 date_ob = `${day}/${month}/${year}`;
                 return date_ob;
             }
@@ -42,18 +39,17 @@ Vue.mixin({
                 let date_ob = date.split("/");
                 let day = date_ob[0];
                 let month = date_ob[1];
-                let year = date_ob[2];
+                let year = date_ob[2].slice(-2);
                 date_ob = `${month}/${day}/${year}`;
                 return date_ob;
             }
         },
         dateRange(start, end) {
             var range = [];
-            let fromDate = new Date(start);
-            let toDate = new Date(end);
             for (
-                let unix = fromDate.getTime(); unix <= toDate.getTime(); unix += 86400000
+                let unix = start.getTime(); unix <= end.getTime(); unix += 86400000
             ) {
+                console.log(unix);
                 let thisDay = new Date(unix);
                 range.push(thisDay);
             }

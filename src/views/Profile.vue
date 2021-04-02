@@ -389,6 +389,10 @@ export default {
   .txtP {
     font-size: 14px;
   }
+
+  .rightCol {
+    align-items: start;
+  }
 }
 
 @media screen and (min-width: 960px) and (max-width: 1264px) {
