@@ -35,6 +35,24 @@
             </v-btn>
           </div>
         </v-card>
+        <v-card>
+          <div class="subCard">
+            <v-btn
+              @click="
+                redirect(
+                  'https://drive.google.com/drive/folders/1v-vEOUbSnM-OqRvUavmBRsc1-nKsv72J'
+                )
+              "
+              color="#1c2f49"
+              width="70%"
+              large
+              rounded
+              dark
+            >
+              My Portfolio
+            </v-btn>
+          </div>
+        </v-card>
       </v-col>
 
       <v-col cols="12" md="9" sm="12">
@@ -110,41 +128,68 @@
               </v-card-title>
               <v-card-text class="mt-4 px-4">
                 <v-row class="px-3">
-                  <v-col cols="12" md="6" class="pa-0 mt-6">
-                    <h3>INTERMEDIATE</h3>
-                    <v-list-item
-                      v-for="(val, index) in intermediate"
-                      :key="index"
-                      class="px-0"
+                  <v-col cols="12" md="6" class="pa-0 mt-4">
+                    <v-card-actions
+                      @click="showinter = !showinter"
+                      class="pa-0"
                     >
-                      <v-list-item-icon class="mr-0 ml-0">
-                        <v-icon size="15" color="black">
-                          fiber_manual_record
+                      <h3>INTERMEDIATE</h3>
+                      <v-btn icon color="black">
+                        <v-icon>
+                          {{ showinter ? "mdi-chevron-up" : "mdi-chevron-down" }}
                         </v-icon>
-                      </v-list-item-icon>
+                      </v-btn>
+                    </v-card-actions>
+                    <v-expand-transition>
+                      <div v-show="showinter">
+                        <v-divider></v-divider>
+                        <v-list-item
+                          v-for="(val, index) in intermediate"
+                          :key="index"
+                          class="px-0"
+                        >
+                          <v-list-item-icon class="mr-0 ml-0">
+                            <v-icon size="15" color="black">
+                              fiber_manual_record
+                            </v-icon>
+                          </v-list-item-icon>
 
-                      <p class="txtProfile">
-                        {{ val.title }}
-                      </p>
-                    </v-list-item>
+                          <p class="txtProfile">
+                            {{ val.title }}
+                          </p>
+                        </v-list-item>
+                      </div>
+                    </v-expand-transition>
                   </v-col>
-                  <v-col cols="12" md="6" sm="6" class="pa-0 mt-6">
-                    <h3>BEGINNER</h3>
-                    <v-list-item
-                      v-for="(val, index) in beginner"
-                      :key="index"
-                      class="px-0"
-                    >
-                      <v-list-item-icon class="mr-0 ml-0">
-                        <v-icon size="15" color="black">
-                          fiber_manual_record
+                  <v-col cols="12" md="6" sm="6" class="pa-0 mt-4">
+                    <v-card-actions @click="show = !show" class="pa-0">
+                      <h3>BEGINNER</h3>
+                      <v-btn icon color="black">
+                        <v-icon>
+                          {{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}
                         </v-icon>
-                      </v-list-item-icon>
+                      </v-btn>
+                    </v-card-actions>
+                    <v-expand-transition>
+                      <div v-show="show">
+                        <v-divider></v-divider>
+                        <v-list-item
+                          v-for="(val, index) in beginner"
+                          :key="index"
+                          class="px-0"
+                        >
+                          <v-list-item-icon class="mr-0 ml-0">
+                            <v-icon size="15" color="black">
+                              fiber_manual_record
+                            </v-icon>
+                          </v-list-item-icon>
 
-                      <p class="txtProfile">
-                        {{ val.title }}
-                      </p>
-                    </v-list-item>
+                          <p class="txtProfile">
+                            {{ val.title }}
+                          </p>
+                        </v-list-item>
+                      </div>
+                    </v-expand-transition>
                   </v-col>
                 </v-row>
               </v-card-text>
@@ -206,7 +251,7 @@
                 </v-list-item>
               </v-card-text>
             </v-col>
-            <v-col cols="12" md="4" sm="6" class="pa-0 rightCol align-start">
+            <v-col cols="12" md="4" sm="6" class="pa-0 rightCol">
               <div style="width: 100%">
                 <v-card-title class="headCard d-flex justify-center">
                   <h2 class="lsHeadtxt txtDel">
@@ -251,6 +296,8 @@ export default {
   },
   data() {
     return {
+      show: false,
+      showinter: false,
       rating: 5,
       socials: [
         { icon: "facebook" },
@@ -321,6 +368,13 @@ export default {
 </script>
 
 <style scoped>
+.subCard {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .lsItemTxt {
   font-size: 18px;
 }

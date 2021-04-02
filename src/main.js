@@ -49,7 +49,6 @@ Vue.mixin({
             for (
                 let unix = start.getTime(); unix <= end.getTime(); unix += 86400000
             ) {
-                console.log(unix);
                 let thisDay = new Date(unix);
                 range.push(thisDay);
             }

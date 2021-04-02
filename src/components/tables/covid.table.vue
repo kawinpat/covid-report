@@ -104,7 +104,6 @@ export default {
     ...mapMutations(["keepDataTable"]),
     async onFilter(date) {
       if (date) {
-        console.log(date);
         let dateSelect = date;
         let currentDate = this.dateFormat(new Date());
 
@@ -115,6 +114,7 @@ export default {
         var to = new Date(cd[2], parseInt(cd[1]) - 1, cd[0]);
 
         let fineBetweenDate = this.dateRange(from, to);
+        
         let sum = fineBetweenDate.length - 1;
 
         this.dateFind = this.dateFindFormat(dateSelect);
