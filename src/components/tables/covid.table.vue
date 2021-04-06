@@ -115,7 +115,7 @@ export default {
 
         let fineBetweenDate = this.dateRange(from, to);
         
-        let sum = fineBetweenDate.length - 1;
+        let sum = fineBetweenDate.length;
 
         this.dateFind = this.dateFindFormat(dateSelect);
         this.dataTable = await this.$restApi.get(`historical?lastdays=${sum}`);
