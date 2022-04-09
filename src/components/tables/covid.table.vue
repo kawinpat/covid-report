@@ -177,13 +177,13 @@ div >>> .titletxt {
   display: flex !important;
 }
 
-@media screen and (min-width: 320px) and (max-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 375px) {
   div >>> .titletxt {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
-@media screen and (min-width: 375px) and (max-width: 414px) {
+@media screen and (min-width: 376px) and (max-width: 414px) {
   div >>> .titletxt {
     font-size: 23px;
   }

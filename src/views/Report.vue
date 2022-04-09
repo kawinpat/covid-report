@@ -6,6 +6,9 @@
     </v-row>
     <v-row class="rowChart">
       <v-col cols="12" md="10">
+        <div class="titletxt">
+          <p style="color:red; margin: 20px 0px -20px 0px;">*data table will be updated for the last 2 days.</p>
+        </div>
         <CovidTable />
       </v-col>
     </v-row>
@@ -52,5 +55,11 @@ export default {
 .rowChart {
   display: flex;
   justify-content: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 375px) {
+  .titletxt {
+    font-size: 14px;
+  }
 }
 </style>
