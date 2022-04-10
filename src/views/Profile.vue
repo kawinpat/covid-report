@@ -303,8 +303,8 @@ export default {
   },
   data() {
     return {
-      show: false,
-      showinter: false,
+      show: true,
+      showinter: true,
       rating: 5,
       socials: [
         { icon: "facebook" },
