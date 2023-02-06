@@ -55,12 +55,11 @@
         </v-card>
       </v-col>
 
+      <!-- ABOUT ME -->
       <v-col cols="12" md="9" sm="12">
         <v-card class="cardDetail" tile>
           <v-card-title class="px-1">
-            <h2 class="lsHeadtxt txtDel">
-              ABOUT ME
-            </h2>
+            <h2 class="lsHeadtxt txtDel">ABOUT ME</h2>
           </v-card-title>
           <v-card-text class="mt-4 px-1">
             <p class="txtCon">
@@ -73,12 +72,11 @@
             </p>
           </v-card-text>
 
+          <!-- CONTACT -->
           <v-row class="px-1">
             <v-col cols="12" md="8" sm="6" class="pa-0">
               <v-card-title class="headCard">
-                <h2 class="lsHeadtxt txtDel">
-                  CONTACT
-                </h2>
+                <h2 class="lsHeadtxt txtDel">CONTACT</h2>
               </v-card-title>
               <v-card-text class="mt-4 px-4">
                 <v-card-actions
@@ -97,36 +95,39 @@
                 </v-card-actions>
               </v-card-text>
             </v-col>
-            <v-col cols="12" md="4" sm="6" class=" rightCol py-7">
+            <v-col cols="12" md="4" sm="6" class="rightCol py-7">
               <div>
                 <v-card-title class="headCard d-flex justify-center">
-                  <h2 class="lsHeadtxt txtDel">
-                    EDUCATION
-                  </h2>
+                  <h2 class="lsHeadtxt txtDel">EDUCATION</h2>
                 </v-card-title>
                 <v-card-text class="mt-4 px-4 text-center">
                   <p class="my-2 txtProfile">
                     Suan sunandha Rajabhat University
                   </p>
-                  <p class="ma-0 mt-3 txtProfile">
-                    Bachelor Degree
-                  </p>
-                  <p class="txtProfile">
-                    in Information Technology, 2021
-                  </p>
+                  <p class="ma-0 mt-3 txtProfile">Bachelor Degree</p>
+                  <p class="txtProfile">in Information Technology, 2021</p>
                 </v-card-text>
               </div>
             </v-col>
           </v-row>
 
+          <!-- SKILLS -->
           <v-row class="px-1">
             <v-col cols="12" md="8" sm="6" class="pa-0 my-5">
-              <v-card-title class="headCard">
-                <h2 class="lsHeadtxt txtDel">
-                  SKILLS
-                </h2>
+              <v-card-title class="headCard" @click="showskills = !showskills">
+                <h2 class="lsHeadtxt txtDel">SKILLS</h2>
+                <v-btn
+                  icon
+                  color="#03989e"
+                  style="border: 1px solid; margin-left: 10px"
+                  small
+                >
+                  <v-icon>
+                    {{ showskills ? "mdi-chevron-up" : "mdi-chevron-down" }}
+                  </v-icon>
+                </v-btn>
               </v-card-title>
-              <v-card-text class="mt-4 px-4">
+              <v-card-text class="mt-4 px-4" v-show="showskills">
                 <v-row class="px-3">
                   <v-col cols="12" md="6" class="pa-0 mt-4">
                     <v-card-actions
@@ -199,9 +200,7 @@
             <v-col cols="12" md="4" sm="6" class="rightCol py-7">
               <div>
                 <v-card-title class="headCard d-flex justify-center">
-                  <h2 class="lsHeadtxt txtDel">
-                    LANGUAGE
-                  </h2>
+                  <h2 class="lsHeadtxt txtDel">LANGUAGE</h2>
                 </v-card-title>
                 <v-card-text
                   v-for="(val, index) in language"
@@ -228,12 +227,84 @@
             </v-col>
           </v-row>
 
+          <!-- TOOLS -->
           <v-row class="px-1">
-            <v-col cols="12" md="8" sm="6" class="pa-0">
+            <v-col cols="12" md="8" sm="6" class="pa-0 mt-5">
+              <v-card-title class="headCard" @click="showtools = !showtools">
+                <h2 class="lsHeadtxt txtDel">TOOLS</h2>
+                <v-btn
+                  icon
+                  color="#03989e"
+                  style="border: 1px solid; margin-left: 10px"
+                  small
+                >
+                  <v-icon>
+                    {{ showtools ? "mdi-chevron-up" : "mdi-chevron-down" }}
+                  </v-icon>
+                </v-btn>
+              </v-card-title>
+              <v-card-text class="mt-4 px-4">
+                <v-row class="px-3">
+                  <v-col cols="12" md="12" class="pa-0 mt-4">
+                    <v-expand-transition>
+                      <div v-show="showtools">
+                        <!-- <v-divider width="50%"></v-divider> -->
+                        <v-list-item
+                          v-for="(val, index) in tools"
+                          :key="index"
+                          class="px-0"
+                        >
+                          <v-list-item-icon class="mr-0 ml-0">
+                            <v-icon size="15" color="black">
+                              fiber_manual_record
+                            </v-icon>
+                          </v-list-item-icon>
+
+                          <p class="txtProfile">
+                            {{ val.title }}
+                          </p>
+                        </v-list-item>
+                      </div>
+                    </v-expand-transition>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+            </v-col>
+            <v-col
+              cols="12"
+              md="4"
+              sm="6"
+              class="px-0 py-7 rightCol align-center"
+            >
+              <!-- <div style="width: 100%">
+                <v-card-title class="headCard d-flex justify-center">
+                  <h2 class="lsHeadtxt txtDel">PORTFOLIO</h2>
+                </v-card-title>
+                <v-card-actions class="d-flex justify-center mt-4">
+                  <v-btn
+                    @click="
+                      redirect(
+                        'https://drive.google.com/drive/folders/1v-vEOUbSnM-OqRvUavmBRsc1-nKsv72J'
+                      )
+                    "
+                    color="#1c2f49"
+                    width="70%"
+                    large
+                    rounded
+                    dark
+                  >
+                    Get look
+                  </v-btn>
+                </v-card-actions>
+              </div> -->
+            </v-col>
+          </v-row>
+
+          <!-- EXPERIENCE -->
+          <v-row class="px-1">
+            <v-col cols="12" md="8" sm="6" class="pa-0 mt-5">
               <v-card-title class="headCard">
-                <h2 class="lsHeadtxt txtDel">
-                  EXPERIENCE
-                </h2>
+                <h2 class="lsHeadtxt txtDel">EXPERIENCE</h2>
               </v-card-title>
               <v-card-text class="mt-4 px-4">
                 <v-list-item
@@ -259,11 +330,9 @@
               sm="6"
               class="px-0 py-7 rightCol align-start"
             >
-              <div style="width: 100%">
+            <div style="width: 100%">
                 <v-card-title class="headCard d-flex justify-center">
-                  <h2 class="lsHeadtxt txtDel">
-                    PORTFOLIO
-                  </h2>
+                  <h2 class="lsHeadtxt txtDel">PORTFOLIO</h2>
                 </v-card-title>
                 <v-card-actions class="d-flex justify-center mt-4">
                   <v-btn
@@ -305,6 +374,8 @@ export default {
     return {
       show: true,
       showinter: true,
+      showskills: true,
+      showtools: true,
       rating: 5,
       socials: [
         { icon: "facebook" },
@@ -335,11 +406,14 @@ export default {
         { title: "Website with Vue.js" },
         { title: "JavaScript" },
         { title: "RESTful API with Node.js" },
+        { title: "PHP" },
+        { title: "RESTful API with Laravel" },
         { title: "MongoDB & MySQL" },
         { title: "HTML & CSS" },
         { title: "Bootstrap" },
         { title: "Figma" },
         { title: "Git" },
+        { title: "Onesignal" },
       ],
       beginner: [
         { title: "AWS | EC2" },
@@ -347,6 +421,13 @@ export default {
         { title: "React.js" },
         { title: "Test with jest" },
         { title: "Scenario Test UAT" },
+      ],
+      tools: [
+        { title: "Postman" },
+        { title: "Robo 3T" },
+        { title: "MySQL Workbench" },
+        { title: "Microsoft program (Word, Excel, PowerPoint, Teams)" },
+        { title: "Git kraken (Company License)" },
       ],
       experiece: [
         {
@@ -362,6 +443,12 @@ export default {
         {
           title:
             "Develop the website accordingly of the customer requirements and as assigned.",
+        },
+        {
+          title: "Create RESTful API with PHP.",
+        },
+        {
+          title: "Use Onesignal to send notification for website.",
         },
       ],
     };
