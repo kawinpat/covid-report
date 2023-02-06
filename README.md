@@ -15,6 +15,11 @@ npm run serve
 npm run build
 ```
 
+### Deploy a production to firebase
+```
+firebase deploy --only hosting
+```
+
 ### Run your unit tests
 ```
 npm run test:unit
