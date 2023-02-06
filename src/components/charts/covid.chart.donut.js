@@ -1,10 +1,11 @@
-import { Bar } from "vue-chartjs";
+// import { Bar } from "vue-chartjs";
+import { Doughnut } from "vue-chartjs";
 import { Chart } from "chart.js";
 
 Chart.defaults.global.defaultFontSize = 14;
 
 export default {
-  extends: Bar,
+  extends: Doughnut,
   props: ["type"],
   data() {
     return {

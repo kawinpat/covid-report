@@ -4,6 +4,9 @@
       <CovidWidget :type="'all'"/>
       <CovidWidget :type="'today'"/>
     </v-row>
+    <!-- <v-row class="rowChart">
+      <CovidWidgetDonut :type="'all'"/>
+    </v-row> -->
     <v-row class="rowChart">
       <v-col cols="12" md="10">
         <div class="titletxt">
@@ -18,6 +21,7 @@
 <script>
 import { mapMutations } from "vuex";
 import CovidWidget from "@/components/widgets/covid.widget.vue";
+// import CovidWidgetDonut from "@/components/widgets/covid.widget.donut.vue";
 import CovidTable from "@/components/tables/covid.table.vue";
 export default {
   name: "Report",
